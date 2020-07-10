@@ -30,8 +30,9 @@ app.use(function validateBearerToken(req, res, next) {
   next();
 });
 
-app.use(listRouter);
-app.use(cardRouter);
+app.use('/card',cardRouter);
+app.use('/list',listRouter);
+
 
 app.use(function errorHandler(error, req, res, next) {
   let response;

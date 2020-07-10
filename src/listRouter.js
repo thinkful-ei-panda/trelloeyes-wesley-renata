@@ -1,13 +1,15 @@
-const listRouter = express.Router();
 const express = require('express');
+const listRouter = express.Router();
 const {lists} = require('./data.js');
 const logger = require('./logger.js');
 
-listRouter.get('/list', (req, res) => {
-  res.json(lists);
-});
+listRouter
+  .route('/')
+  .get((req, res) => {
+    res.json(lists);
+  });
 
-listRouter.get('/list/:id', (req, res) => {
+listRouter.get('/:id', (req, res) => {
 
   const{id} = req.params;
   const list = lists.find(li => li.id == id);
